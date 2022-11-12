@@ -61,33 +61,33 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 12, 50, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 50, 0),
               
                   child: Text(
                 'Pagos en linea',
                 style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xFF6E43CB),
-                      fontSize: 20,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20, 12, 100, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(20, 20, 100, 0),
              
                   child: Text(
                 'Sedes',
                 style: TextStyle(
                       fontFamily: 'Poppins',
                       color: Color(0xFF6E43CB),
-                      fontSize: 20,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 30),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 50, 30),
               child: ElevatedButton(
                 child: Text('Cerrar Sesion',
                 style: TextStyle(
@@ -136,13 +136,13 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 60),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
                       width: 800,
-                      height: 600,
+                      height: 700,
                       decoration: BoxDecoration(
                         color:Colors.white,
                       ),
@@ -305,7 +305,7 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                     Container(
                       //de la iamgen - externa
                       width: 735,
-                      height: 600,
+                      height: 700,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         image: DecorationImage(

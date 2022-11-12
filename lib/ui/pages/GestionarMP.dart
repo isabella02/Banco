@@ -1,4 +1,6 @@
+import 'package:f_template_juego_taller1/ui/pages/CuentasG.dart';
 import 'package:f_template_juego_taller1/ui/pages/InicioPage.dart';
+import 'package:f_template_juego_taller1/ui/pages/TarjetasG.dart';
 import 'package:flutter/material.dart';
 
 
@@ -141,7 +143,12 @@ class _GestionarMPWidgetState extends State<GestionarMPWidget> {
                                   ),
                                   primary: Color.fromARGB(255, 64, 76, 251)
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const TarjetasGWidget()),
+                                );
+                              },
                             ),
                                   ),
                             ),
@@ -201,7 +208,12 @@ class _GestionarMPWidgetState extends State<GestionarMPWidget> {
                                   ),
                                   primary: Color.fromARGB(255, 64, 76, 251)
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const CuentasGWidget()),
+                                );
+                              },
                             ),
                                   ),
                             ),

@@ -160,8 +160,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 color:  Colors.white,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.network(
-                    'https://w0.peakpx.com/wallpaper/899/2/HD-wallpaper-light-blue-to-purple-gradient.jpg',
+                  image: Image.asset(
+                    'assets/fondo.jpg',
                   ).image,
                 ),
               ),

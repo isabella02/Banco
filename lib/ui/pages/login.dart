@@ -118,7 +118,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(210, 50, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(150, 50, 0, 0),
                             
                                 child: Text(
                               'Iniciar Sesión',
@@ -137,7 +137,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         thickness: 2,
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -145,7 +145,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               alignment: AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    200, 20, 0, 0),
+                                    200, 0, 0, 0),
                                 
                                     child: Text(
                                   'Identificación',
@@ -307,7 +307,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(300, 20, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(220, 20, 0, 0),
                               child: ElevatedButton(
                               child: Text('Iniciar Sesion',
                               style: TextStyle(
@@ -340,7 +340,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(330, 20, 0, 0),
+                                EdgeInsetsDirectional.fromSTEB(220, 20, 0, 0),
                             child: ElevatedButton(
                               child: Text('Registrarse',
                               style: TextStyle(

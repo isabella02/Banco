@@ -1,3 +1,4 @@
+import 'package:f_template_juego_taller1/ui/pages/AddCuenta.dart';
 import 'package:f_template_juego_taller1/ui/pages/InicioPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -189,6 +190,10 @@ class _CuentasGWidgetState extends State<CuentasGWidget> {
                                       color: Colors.white,
                                       onPressed: () async {
                                         //context.pop();
+                                        Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => const AddcuentaWidget()),
+                                      );
                                       },
                                     ),
                                   ),
