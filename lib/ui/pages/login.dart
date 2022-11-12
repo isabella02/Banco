@@ -308,7 +308,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(300, 20, 0, 0),
-                              child: RaisedButton(
+                              child: ElevatedButton(
                               child: Text('Iniciar Sesion',
                               style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -317,9 +317,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),),
                                 
-                              color: Color.fromARGB(255, 64, 76, 251),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -337,7 +341,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(330, 20, 0, 0),
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               child: Text('Registrarse',
                               style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -345,9 +349,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),),
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 255, 255, 255)
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                   context,

@@ -436,7 +436,7 @@ class _AddtarjetaWidgetState extends State<AddtarjetaWidget> {
                               child:SizedBox(
                                 width: 150,
                                 height: 50,
-                              child: RaisedButton(
+                              child: ElevatedButton(
                               child: Text('Siguiente',
                               
                               style: TextStyle(
@@ -446,9 +446,13 @@ class _AddtarjetaWidgetState extends State<AddtarjetaWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),),
                                 
-                              color: Color.fromARGB(255, 64, 76, 251),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                   context,

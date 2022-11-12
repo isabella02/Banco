@@ -91,7 +91,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 50),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Iniciar Sesion',
                 style: TextStyle(
                       fontFamily: 'Poppins',
@@ -100,9 +100,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       fontWeight: FontWeight.bold,
                     ),),
                   
-                color: Color.fromARGB(255, 64, 76, 251),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -113,7 +117,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 50),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Registrarse',
                 style: TextStyle(
                       fontFamily: 'Poppins',
@@ -121,9 +125,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),),
-                color: Color.fromARGB(255, 255, 255, 255),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 255, 255, 255)
+                              ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -258,11 +266,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     300, 40, 0, 0),
-                                child: RaisedButton(
+                                child: ElevatedButton(
                                   child: Text('Pagar en linea'),
-                                  color: Color.fromARGB(255, 64, 73, 251),
+                                  style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                                   onPressed: () {
                                     Navigator.push(
                                     context,
@@ -285,6 +297,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           fit: BoxFit.cover,
                           image: Image.network(
                             'https://img.freepik.com/vector-gratis/ilustracion-concepto-cartera_114360-1985.jpg?w=740&t=st=1667316256~exp=1667316856~hmac=b8a90a584cf0c3601c3eed0e0e213d77a32eea92793684b720bf9a4122117cc9',
+                            height: 140,
+                            width: 140,
                           ).image,
                         ),
                       ),

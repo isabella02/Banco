@@ -88,7 +88,7 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 30),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text('Cerrar Sesion',
                 style: TextStyle(
                       fontFamily: 'Poppins',
@@ -97,9 +97,13 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                       fontWeight: FontWeight.bold,
                     ),),
                   
-                color: Color.fromARGB(255, 64, 76, 251),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                 onPressed: () {
                   Navigator.push(
                       context,
@@ -232,11 +236,15 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     350, 40, 0, 0),
-                                child: RaisedButton(
+                                child: ElevatedButton(
                                   child: Text('Realizar Pago'),
-                                  color: Color.fromARGB(255, 64, 73, 251),
+                                  style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 64, 76, 251)
+                              ),
                                   onPressed: () {
                                     Navigator.push(
                                     context,

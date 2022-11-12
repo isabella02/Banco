@@ -150,7 +150,7 @@ class _RegistroTranWidgetState extends State<RegistroTranWidget> {
                               child:SizedBox(
                                 width: 130,
                                 height: 40,
-                              child: RaisedButton(
+                              child: ElevatedButton(
                               child: Text('Cerrar',
                               
                               style: TextStyle(
@@ -160,9 +160,13 @@ class _RegistroTranWidgetState extends State<RegistroTranWidget> {
                                     fontWeight: FontWeight.bold,
                                   ),),
                                 
-                              color: Color.fromARGB(255, 180, 73, 78),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(16.0))),
+                                  style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 180, 73, 78)
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                   context,
