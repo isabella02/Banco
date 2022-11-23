@@ -3,7 +3,6 @@ import 'package:f_template_juego_taller1/ui/pages/InicioPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-
 class CuentasGWidget extends StatefulWidget {
   const CuentasGWidget({Key? key}) : super(key: key);
 
@@ -29,10 +28,10 @@ class _CuentasGWidgetState extends State<CuentasGWidget> {
             child: Text(
               'EduWallet',
               style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF121013),
-                    fontSize: 50,
-                  ),
+                fontFamily: 'Poppins',
+                color: Color(0xFF121013),
+                fontSize: 50,
+              ),
             ),
           ),
           actions: [],
@@ -74,41 +73,36 @@ class _CuentasGWidgetState extends State<CuentasGWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                child: Ink(
-                                    decoration: const ShapeDecoration(
-                                      color: Colors.lightBlue,
-                                      shape: CircleBorder(),
-                                      
-                                    ),
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.chevron_left,
-                                        color: Color.fromARGB(255, 84, 81, 91),
-                                        size: 30,
-                                      ),
-                                      color: Colors.white,
-                                      onPressed: () async {
-                                        //context.pop();
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                  ),
-                            
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            child: Ink(
+                              decoration: const ShapeDecoration(
+                                color: Colors.lightBlue,
+                                shape: CircleBorder(),
+                              ),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.chevron_left,
+                                  color: Color.fromARGB(255, 84, 81, 91),
+                                  size: 30,
+                                ),
+                                color: Colors.white,
+                                onPressed: () async {
+                                  //context.pop();
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(150, 50, 0, 0),
-                            
-                                child: Text(
+                            child: Text(
                               'Cuentas Agregadas',
-                              style:
-                                  TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 37,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 37,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],
@@ -127,27 +121,28 @@ class _CuentasGWidgetState extends State<CuentasGWidget> {
                                 startActionPane: ActionPane(
                                   motion: ScrollMotion(),
                                   children: [
-                                    
-                                  SlidableAction(icon: Icons.delete, onPressed: (context){},)
-
+                                    SlidableAction(
+                                      icon: Icons.delete,
+                                      onPressed: (context) {},
+                                    )
                                   ],
                                 ),
                                 child: ListTile(
                                   title: Text(
                                     'Bancolombia Ahorro a la mano',
                                     style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF050606),
-                                          fontSize: 25,
-                                        ),
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF050606),
+                                      fontSize: 25,
+                                    ),
                                   ),
                                   subtitle: Text(
                                     '100251131',
                                     style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF495B5D),
-                                          fontSize: 20,
-                                        ),
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF495B5D),
+                                      fontSize: 20,
+                                    ),
                                   ),
                                   trailing: Icon(
                                     Icons.arrow_forward_ios,
@@ -174,61 +169,64 @@ class _CuentasGWidgetState extends State<CuentasGWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
                               child: Ink(
-                                    decoration: const ShapeDecoration(
-                                      color: Colors.lightBlue,
-                                      shape: CircleBorder(),
-                                      
-                                      
-                                    ),
-                                    
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.add,
-                                        color: Color.fromARGB(255, 84, 81, 91),
-                                        size: 30,
-                                      ),
-                                      color: Colors.white,
-                                      onPressed: () async {
-                                        //context.pop();
-                                        Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => const AddcuentaWidget()),
-                                      );
-                                      },
-                                    ),
+                                decoration: const ShapeDecoration(
+                                  color: Colors.lightBlue,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.add,
+                                    color: Color.fromARGB(255, 84, 81, 91),
+                                    size: 30,
                                   ),
+                                  color: Colors.white,
+                                  onPressed: () async {
+                                    //context.pop();
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const AddcuentaWidget()),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(300, 0, 0, 0),
-                              child:SizedBox(
+                              child: SizedBox(
                                 width: 130,
                                 height: 40,
-                              child: ElevatedButton(
-                              child: Text('Cerrar',
-                              
-                              style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),),
-                                
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
+                                child: ElevatedButton(
+                                  child: Text(
+                                    'Cerrar',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  primary: Color.fromARGB(255, 64, 76, 251)
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.0, vertical: 20.0),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16.0)),
+                                      primary:
+                                          Color.fromARGB(255, 64, 76, 251)),
+                                  onPressed: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                              title: Text('Masca verga'),
+                                              content:
+                                                  Text('todos valen monda'),
+                                            ));
+                                  },
+                                ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const InicioPageWidget()),
-                                );
-                              },
-                            ),
-                                  ),
                             ),
                           ],
                         ),

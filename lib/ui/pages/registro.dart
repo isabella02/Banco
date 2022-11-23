@@ -1,9 +1,6 @@
 import 'package:f_template_juego_taller1/ui/pages/registro2.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class RegistroWidget extends StatefulWidget {
   const RegistroWidget({Key? key}) : super(key: key);
 
@@ -12,7 +9,6 @@ class RegistroWidget extends StatefulWidget {
 }
 
 class _RegistroWidgetState extends State<RegistroWidget> {
-  
   TextEditingController? textController4;
   TextEditingController? textController1;
   TextEditingController? textController2;
@@ -36,14 +32,14 @@ class _RegistroWidgetState extends State<RegistroWidget> {
     textController4?.dispose();
     super.dispose();
   }
+
   final List<String> items = [
-  'Cedula De Ciudadania',
-  'Cedula Extranjera',
-  'Tarjeta De Identidad',
-  
-];
-String? selectedValue;
-String? tipoDoc;
+    'Cedula De Ciudadania',
+    'Cedula Extranjera',
+    'Tarjeta De Identidad',
+  ];
+  String? selectedValue;
+  String? tipoDoc;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,10 +55,10 @@ String? tipoDoc;
             child: Text(
               'EduWallet',
               style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF121013),
-                    fontSize: 50,
-                  ),
+                fontFamily: 'Poppins',
+                color: Color(0xFF121013),
+                fontSize: 50,
+              ),
             ),
           ),
           actions: [],
@@ -104,41 +100,36 @@ String? tipoDoc;
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                child: Ink(
-                                    decoration: const ShapeDecoration(
-                                      color: Colors.lightBlue,
-                                      shape: CircleBorder(),
-                                      
-                                    ),
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.chevron_left,
-                                        color: Color.fromARGB(255, 84, 81, 91),
-                                        size: 30,
-                                      ),
-                                      color: Colors.white,
-                                      onPressed: () async {
-                                        //context.pop();
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                  ),
-                            
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            child: Ink(
+                              decoration: const ShapeDecoration(
+                                color: Colors.lightBlue,
+                                shape: CircleBorder(),
+                              ),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.chevron_left,
+                                  color: Color.fromARGB(255, 84, 81, 91),
+                                  size: 30,
+                                ),
+                                color: Colors.white,
+                                onPressed: () async {
+                                  //context.pop();
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(210, 50, 0, 0),
-                            
-                                child: Text(
+                            child: Text(
                               'Crear Cuenta',
-                              style:
-                                  TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 37,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 37,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],
@@ -162,7 +153,6 @@ String? tipoDoc;
                                   decoration: InputDecoration(
                                     labelText: 'Nombre',
                                     hintText: 'Escribir aquí',
-                                  
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFF2F3A3C),
@@ -193,9 +183,9 @@ String? tipoDoc;
                                     ),
                                   ),
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                  ),
                                 ),
                               ),
                             ),
@@ -209,7 +199,6 @@ String? tipoDoc;
                                   decoration: InputDecoration(
                                     labelText: 'Apellidos',
                                     hintText: 'Escribir aquí',
-                                    
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFF2F3A3C),
@@ -240,9 +229,9 @@ String? tipoDoc;
                                     ),
                                   ),
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                  ),
                                 ),
                               ),
                             ),
@@ -264,7 +253,6 @@ String? tipoDoc;
                                   decoration: InputDecoration(
                                     labelText: 'Fecha de nacimiento',
                                     hintText: '01/09/2002',
-                                    
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFF2F3A3C),
@@ -300,9 +288,9 @@ String? tipoDoc;
                                     ),
                                   ),
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                  ),
                                   keyboardType: TextInputType.datetime,
                                 ),
                               ),
@@ -315,23 +303,22 @@ String? tipoDoc;
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            
                             DecoratedBox(
                               decoration: ShapeDecoration(
-                               
                                 color: Color.fromARGB(255, 255, 255, 255),
                                 shape: RoundedRectangleBorder(
-                                  
-                                  side: BorderSide(width: 1.0, style: BorderStyle.solid, color: Color.fromARGB(255, 37, 37, 37)),
-                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  side: BorderSide(
+                                      width: 1.0,
+                                      style: BorderStyle.solid,
+                                      color: Color.fromARGB(255, 37, 37, 37)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20)),
                                 ),
                               ),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
-                              child: 
-                              
-                               DropdownButton<String>(
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                                child: DropdownButton<String>(
                                   value: selectedValue,
                                   hint: Text(
                                     'Tipo de Documento',
@@ -341,22 +328,22 @@ String? tipoDoc;
                                     ),
                                   ),
                                   onChanged: (val) =>
-                                    setState(() => tipoDoc = val),
+                                      setState(() => tipoDoc = val),
                                   items: items
                                       .map<DropdownMenuItem<String>>(
-                                          (String value) => DropdownMenuItem<String>(
+                                          (String value) =>
+                                              DropdownMenuItem<String>(
                                                 value: value,
                                                 child: Text(value),
                                               ))
                                       .toList(),
-                                   
+
                                   // add extra sugar..
                                   icon: Icon(Icons.arrow_drop_down),
                                   iconSize: 42,
                                   underline: SizedBox(),
+                                ),
                               ),
-                            ),
-                            
                             ),
                             Expanded(
                               child: Padding(
@@ -368,7 +355,6 @@ String? tipoDoc;
                                   decoration: InputDecoration(
                                     labelText: 'Numero de identificación',
                                     hintText: 'Escribir aquí',
-                                    
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0xFF2F3A3C),
@@ -404,9 +390,9 @@ String? tipoDoc;
                                     ),
                                   ),
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                  ),
                                   keyboardType: TextInputType.number,
                                 ),
                               ),
@@ -422,34 +408,30 @@ String? tipoDoc;
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
-                                  child:SizedBox(
+                              child: SizedBox(
                                 width: 150,
                                 height: 50,
-                              child: ElevatedButton(
-                              child: Text('Siguiente',
-                              
-                              style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),),
-                                
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
+                                child: ElevatedButton(
+                                  child: Text(
+                                    'Siguiente',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                  primary: Color.fromARGB(255, 64, 76, 251)
+                                  style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.0, vertical: 20.0),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16.0)),
+                                      primary:
+                                          Color.fromARGB(255, 64, 76, 251)),
+                                  onPressed: () {},
+                                ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const Registro2Widget()),
-                                );
-                              },
-                            ),
-                                  ),
                             ),
                           ],
                         ),

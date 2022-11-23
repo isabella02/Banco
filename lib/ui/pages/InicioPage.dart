@@ -4,10 +4,10 @@ import 'package:f_template_juego_taller1/ui/pages/GestionarMP.dart';
 import 'package:f_template_juego_taller1/ui/pages/RPagos.dart';
 import 'package:f_template_juego_taller1/ui/pages/RegistroTran.dart';
 import 'package:f_template_juego_taller1/ui/pages/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-
 
 class InicioPageWidget extends StatefulWidget {
   const InicioPageWidget({Key? key}) : super(key: key);
@@ -19,6 +19,11 @@ class InicioPageWidget extends StatefulWidget {
 class _InicioPageWidgetState extends State<InicioPageWidget> {
   PageController? pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  Future cleansesion() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('usuario', '');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +40,13 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(30, 0, 13, 20),
-                
-                    child: Text(
+                child: Text(
                   'EduWallet',
                   style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 40,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
+                    fontFamily: 'Poppins',
+                    fontSize: 40,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  ),
                 ),
               ),
             ],
@@ -50,65 +54,64 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
           actions: [
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 12, 50, 0),
-             
-                  child: Text(
+              child: Text(
                 'Contactanos',
                 style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 50, 0),
-              
-                  child: Text(
+              child: Text(
                 'Pagos en linea',
                 style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF6E43CB),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  fontFamily: 'Poppins',
+                  color: Color(0xFF6E43CB),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20, 20, 100, 0),
-             
-                  child: Text(
+              child: Text(
                 'Sedes',
                 style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color(0xFF6E43CB),
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  fontFamily: 'Poppins',
+                  color: Color(0xFF6E43CB),
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 50, 30),
               child: ElevatedButton(
-                child: Text('Cerrar Sesion',
-                style: TextStyle(
-                      fontFamily: 'Poppins',
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),),
-                  
+                child: Text(
+                  'Cerrar Sesion',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
-                                  ),
-                                  primary: Color.fromARGB(255, 64, 76, 251)
-                              ),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0)),
+                    primary: Color.fromARGB(255, 64, 76, 251)),
                 onPressed: () {
+                  cleansesion();
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePageWidget()),
-                    );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomePageWidget()),
+                  );
                 },
               ),
             ),
@@ -144,7 +147,7 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                       width: 800,
                       height: 700,
                       decoration: BoxDecoration(
-                        color:Colors.white,
+                        color: Colors.white,
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -155,15 +158,14 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     200, 50, 0, 0),
-                               
-                                    child: Text(
+                                child: Text(
                                   'Bienvenid@ al',
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF2F3A3C),
-                                        fontSize: 50,
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF2F3A3C),
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
                               ),
                             ],
@@ -174,41 +176,40 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     200, 0, 0, 0),
-                                
-                                    child: Text(
+                                child: Text(
                                   'Sistema de ',
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF2F3A3C),
-                                        fontSize: 50,
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF2F3A3C),
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
                                   child: Text(
-                                'pagos',
-                                style: TextStyle(
+                                    'pagos',
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xFF3E58BF),
                                       fontSize: 50,
                                       fontWeight: FontWeight.w800,
                                     ),
-                              )),
+                                  )),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 0),
                                   child: Text(
-                                'en',
-                                style: TextStyle(
+                                    'en',
+                                    style: TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xFF2F3A3C),
                                       fontSize: 50,
                                       fontWeight: FontWeight.w800,
                                     ),
-                              )),
+                                  )),
                             ],
                           ),
                           Row(
@@ -217,15 +218,14 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     200, 0, 0, 0),
-                              
-                                    child: Text(
+                                child: Text(
                                   'lineas EduWallet',
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF2F3A3C),
-                                        fontSize: 50,
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF2F3A3C),
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
                               ),
                             ],
@@ -239,17 +239,20 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                                 child: ElevatedButton(
                                   child: Text('Realizar Pago'),
                                   style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
-                                  ),
-                                  primary: Color.fromARGB(255, 64, 76, 251)
-                              ),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 40.0, vertical: 20.0),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16.0)),
+                                      primary:
+                                          Color.fromARGB(255, 64, 76, 251)),
                                   onPressed: () {
                                     Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => const RPagosWidget()),
-                                  );
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const RPagosWidget()),
+                                    );
                                   },
                                 ),
                               ),
@@ -262,31 +265,28 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 40, 0, 0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 40, 0, 0),
                                     child: Text(
-                                  'Contactanos en:',
-                                  style: TextStyle(
+                                      'Contactanos en:',
+                                      style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 20,
                                       ),
-                                )),
+                                    )),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
-                                  
-                                      child: Text(
+                                  child: Text(
                                     'Instagram: @eduwallet',
-                                    
                                   ),
                                 ),
                                 Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 40, 0, 0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10, 40, 0, 0),
                                     child: Text(
-                                  'Gmai:  eduwallet@gmail.com',
-                                  
-                                )),
+                                      'Gmai:  eduwallet@gmail.com',
+                                    )),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 10, 0, 0),
@@ -405,252 +405,241 @@ class _InicioPageWidgetState extends State<InicioPageWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 0),
-                                  
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 3),
-                                          
-                                              child: Text(
-                                            'Agregar Tarjeta',
-                                            style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 16,
-                                                ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 3),
+                                        child: Text(
+                                          'Agregar Tarjeta',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16,
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Ink(
-                                            decoration: const ShapeDecoration(
-                                              color: Colors.lightBlue,
-                                              shape: CircleBorder(),
-                                              
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Ink(
+                                          decoration: const ShapeDecoration(
+                                            color: Colors.lightBlue,
+                                            shape: CircleBorder(),
+                                          ),
+                                          child: IconButton(
+                                            icon: Icon(
+                                              Icons.credit_card_rounded,
+                                              color: Color.fromARGB(
+                                                  255, 84, 81, 91),
+                                              size: 30,
                                             ),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.credit_card_rounded,
-                                                color: Color.fromARGB(255, 84, 81, 91),
-                                                size: 30,
-                                              ),
-                                              color: Colors.white,
-                                              onPressed: () async {
-                                                //context.pop();
-                                                Navigator.push(
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              //context.pop();
+                                              Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const AddtarjetaWidget()),
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const AddtarjetaWidget()),
                                               );
-                                              },
-                                            ),
+                                            },
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       30, 0, 0, 0),
-                                  
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 3),
-                                          
-                                              child: Text(
-                                            'Agregar Cuenta',
-                                            style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 16,
-                                                ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 3),
+                                        child: Text(
+                                          'Agregar Cuenta',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16,
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Ink(
-                                            decoration: const ShapeDecoration(
-                                              color: Colors.lightBlue,
-                                              shape: CircleBorder(),
-                                              
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Ink(
+                                          decoration: const ShapeDecoration(
+                                            color: Colors.lightBlue,
+                                            shape: CircleBorder(),
+                                          ),
+                                          child: IconButton(
+                                            icon: Icon(
+                                              Icons.account_balance,
+                                              color: Color.fromARGB(
+                                                  255, 84, 81, 91),
+                                              size: 30,
                                             ),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.account_balance,
-                                                color: Color.fromARGB(255, 84, 81, 91),
-                                                size: 30,
-                                              ),
-                                              color: Colors.white,
-                                              onPressed: () async {
-                                                //context.pop();
-                                                Navigator.push(
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              //context.pop();
+                                              Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const AddcuentaWidget()),
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const AddcuentaWidget()),
                                               );
-                                              },
-                                            ),
+                                            },
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       50, 0, 0, 0),
-                                  
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                       Padding(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 3),
-                                            child: Text(
-                                          'Gestionar Tarjetas\n       y cuentas',
-                                          style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 16,
-                                              ),
-                                        )),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Ink(
-                                            decoration: const ShapeDecoration(
-                                              color: Colors.lightBlue,
-                                              shape: CircleBorder(),
-                                              
+                                          child: Text(
+                                            'Gestionar Tarjetas\n       y cuentas',
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 16,
                                             ),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.credit_card_rounded,
-                                                color: Color.fromARGB(255, 84, 81, 91),
-                                                size: 30,
-                                              ),
-                                              color: Colors.white,
-                                              onPressed: () async {
-                                                //context.pop();
-                                                Navigator.push(
+                                          )),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Ink(
+                                          decoration: const ShapeDecoration(
+                                            color: Colors.lightBlue,
+                                            shape: CircleBorder(),
+                                          ),
+                                          child: IconButton(
+                                            icon: Icon(
+                                              Icons.credit_card_rounded,
+                                              color: Color.fromARGB(
+                                                  255, 84, 81, 91),
+                                              size: 30,
+                                            ),
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              //context.pop();
+                                              Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const GestionarMPWidget()),
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const GestionarMPWidget()),
                                               );
-                                              },
-                                            ),
+                                            },
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       30, 0, 0, 0),
-                                  
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 3),
-                                            child: Text(
-                                          ' Registros de\nTransacciones',
-                                          style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 16,
-                                              ),
-                                        )),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Ink(
-                                            decoration: const ShapeDecoration(
-                                              color: Colors.lightBlue,
-                                              shape: CircleBorder(),
-                                              
+                                          child: Text(
+                                            ' Registros de\nTransacciones',
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 16,
                                             ),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.receipt_long_rounded,
-                                                color: Color.fromARGB(255, 84, 81, 91),
-                                                size: 30,
-                                              ),
-                                              color: Colors.white,
-                                              onPressed: () async {
-                                                Navigator.push(
-                                              context,
-                                              MaterialPageRoute(builder: (context) => const RegistroTranWidget()),
-                                            );
-                                              },
+                                          )),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Ink(
+                                          decoration: const ShapeDecoration(
+                                            color: Colors.lightBlue,
+                                            shape: CircleBorder(),
+                                          ),
+                                          child: IconButton(
+                                            icon: Icon(
+                                              Icons.receipt_long_rounded,
+                                              color: Color.fromARGB(
+                                                  255, 84, 81, 91),
+                                              size: 30,
                                             ),
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const RegistroTranWidget()),
+                                              );
+                                            },
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       50, 0, 0, 0),
-                                  
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 3),
-                                          
-                                              child: Text(
-                                            'Realizar Pago',
-                                            style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 16,
-                                                ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 3),
+                                        child: Text(
+                                          'Realizar Pago',
+                                          style: TextStyle(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16,
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 10, 0, 0),
-                                          child: Ink(
-                                            decoration: const ShapeDecoration(
-                                              color: Colors.lightBlue,
-                                              shape: CircleBorder(),
-                                              
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: Ink(
+                                          decoration: const ShapeDecoration(
+                                            color: Colors.lightBlue,
+                                            shape: CircleBorder(),
+                                          ),
+                                          child: IconButton(
+                                            icon: Icon(
+                                              Icons.monetization_on_sharp,
+                                              color: Color.fromARGB(
+                                                  255, 84, 81, 91),
+                                              size: 30,
                                             ),
-                                            child: IconButton(
-                                              icon: Icon(
-                                                Icons.monetization_on_sharp,
-                                                color: Color.fromARGB(255, 84, 81, 91),
-                                                size: 30,
-                                              ),
-                                              color: Colors.white,
-                                              onPressed: () async {
-                                                //context.pop();
-                                                Navigator.push(
+                                            color: Colors.white,
+                                            onPressed: () async {
+                                              //context.pop();
+                                              Navigator.push(
                                                 context,
-                                                MaterialPageRoute(builder: (context) => const RPagosWidget()),
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const RPagosWidget()),
                                               );
-                                              },
-                                            ),
+                                            },
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

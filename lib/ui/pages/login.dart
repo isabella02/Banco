@@ -1,8 +1,13 @@
+import 'dart:convert';
 
 import 'package:f_template_juego_taller1/ui/pages/InicioPage.dart';
 import 'package:f_template_juego_taller1/ui/pages/homepage.dart';
 import 'package:f_template_juego_taller1/ui/pages/registro.dart';
+import 'package:f_template_juego_taller1/ui/pages/registro2.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -12,24 +17,91 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController? textController1;
-  TextEditingController? textController2;
+  TextEditingController user = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
   late bool passwordVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  Future sesion() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('usuario', user.text);
+  }
+
+  Future<String> getsesion() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var counter = prefs.getString('usuario') ?? 0;
+    String wenas = 'hola';
+    return counter as String;
+  }
+
+  Future h() async {
+    Fluttertoast.showToast(
+        msg: await getsesion(),
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+  Future habla() async {
+    Fluttertoast.showToast(
+        msg: "hola",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+  Future login() async {
+    var url = "http://localhost:8080/eduwallet/login.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "username": user.text,
+      "password": pass.text,
+    });
+    var data = json.decode(response.body);
+    if (data == "Success") {
+      Fluttertoast.showToast(
+          msg: "Login exitoso",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.green,
+          textColor: Colors.white,
+          fontSize: 16.0);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const InicioPageWidget()),
+      );
+    } else {
+      Fluttertoast.showToast(
+          msg: "No se ha encontrado su usuario y contraseña",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Color.fromARGB(255, 180, 73, 78),
+          textColor: Color.fromARGB(255, 128, 28, 28),
+          fontSize: 16.0);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    textController1 = TextEditingController();
-    textController2 = TextEditingController();
+    user = TextEditingController();
+    pass = TextEditingController();
     passwordVisibility = false;
   }
 
   @override
   void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
+    user.dispose();
+    pass.dispose();
     super.dispose();
   }
 
@@ -48,10 +120,10 @@ class _LoginWidgetState extends State<LoginWidget> {
             child: Text(
               'EduWallet',
               style: TextStyle(
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF121013),
-                    fontSize: 50,
-                  ),
+                fontFamily: 'Poppins',
+                color: Color(0xFF121013),
+                fontSize: 50,
+              ),
             ),
           ),
           actions: [],
@@ -95,39 +167,35 @@ class _LoginWidgetState extends State<LoginWidget> {
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                                child: Ink(
-                                    decoration: const ShapeDecoration(
-                                      color: Colors.lightBlue,
-                                      shape: CircleBorder(),
-                                      
-                                    ),
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.chevron_left,
-                                        color: Color.fromARGB(255, 84, 81, 91),
-                                        size: 30,
-                                      ),
-                                      color: Colors.white,
-                                      onPressed: () async {
-                                        //context.pop();
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                  ),
-                            
+                            child: Ink(
+                              decoration: const ShapeDecoration(
+                                color: Colors.lightBlue,
+                                shape: CircleBorder(),
+                              ),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.chevron_left,
+                                  color: Color.fromARGB(255, 84, 81, 91),
+                                  size: 30,
+                                ),
+                                color: Colors.white,
+                                onPressed: () async {
+                                  //context.pop();
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(150, 50, 0, 0),
-                            
-                                child: Text(
+                            child: Text(
                               'Iniciar Sesión',
-                              style:
-                                  TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 37,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 37,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ],
@@ -146,14 +214,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     200, 0, 0, 0),
-                                
-                                    child: Text(
+                                child: Text(
                                   'Identificación',
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
@@ -168,7 +235,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   150, 0, 150, 0),
                               child: TextFormField(
-                                controller: textController1,
+                                controller: user,
                                 autofocus: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
@@ -204,7 +271,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   filled: true,
                                   fillColor: Colors.white,
                                 ),
-                                
                               ),
                             ),
                           ),
@@ -220,14 +286,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     200, 20, 0, 0),
-                                
-                                    child: Text(
+                                child: Text(
                                   'Contraseña',
                                   style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
@@ -242,12 +307,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   150, 0, 150, 0),
                               child: TextFormField(
-                                controller: textController2,
+                                controller: pass,
                                 autofocus: true,
                                 obscureText: !passwordVisibility,
                                 decoration: InputDecoration(
                                   hintText: '     contraseña',
-                                  
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0xFF2F3A3C),
@@ -293,7 +357,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                   ),
                                 ),
-                                
                                 keyboardType: TextInputType.visiblePassword,
                               ),
                             ),
@@ -309,28 +372,29 @@ class _LoginWidgetState extends State<LoginWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(220, 20, 0, 0),
                               child: ElevatedButton(
-                              child: Text('Iniciar Sesion',
-                              style: TextStyle(
+                                child: Text(
+                                  'Iniciar Sesion',
+                                  style: TextStyle(
                                     fontFamily: 'Poppins',
                                     color: Color.fromARGB(255, 255, 255, 255),
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                  ),),
-                                
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
                                   ),
-                                  primary: Color.fromARGB(255, 64, 76, 251)
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 40.0, vertical: 20.0),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(16.0)),
+                                    primary: Color.fromARGB(255, 64, 76, 251)),
+                                onPressed: () {
+                                  sesion();
+                                  sesion();
+                                  h();
+                                  login();
+                                },
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const InicioPageWidget()),
-                                );
-                              },
-                            ),
                             ),
                           ],
                         ),
@@ -342,28 +406,32 @@ class _LoginWidgetState extends State<LoginWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(220, 20, 0, 0),
                             child: ElevatedButton(
-                              child: Text('Registrarse',
-                              style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF6E43CB),
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                  ),),
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(16.0)
-                                  ),
-                                  primary: Color.fromARGB(255, 255, 255, 255)
+                              child: Text(
+                                'Registrarse',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xFF6E43CB),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(16.0)),
+                                  primary: Color.fromARGB(255, 255, 255, 255)),
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const RegistroWidget()),
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Registro2Widget()),
                                 );
                               },
                             ),
-                                        ),
+                          ),
                         ],
                       ),
                     ],
