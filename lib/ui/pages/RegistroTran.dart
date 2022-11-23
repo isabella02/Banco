@@ -10,7 +10,29 @@ class RegistroTranWidget extends StatefulWidget {
 }
 
 class _RegistroTranWidgetState extends State<RegistroTranWidget> {
+  
+  String? dropDownValue1;
+  String? dropDownValue2;
+  TextEditingController? textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final List<String> Conceptos = [
+    'Transaccion 4555576\n12/12/12',
+    'Transaccion 4555576\n12/12/12',
+    'Transaccion 4555576\n12/12/12',
+  ];
+  final List<String> Sedes = [
+    'Barranquilla',
+    'Cartagena',
+    'Medellin',
+    'Sincelejo',
+    'Santa Marta',
+  ];
+  String? selectedValue;
+  String? concepto;
+  String? selectedValue2;
+  String? sede;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -92,47 +114,75 @@ class _RegistroTranWidgetState extends State<RegistroTranWidget> {
                         thickness: 2,
                       ),
                       Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(500, 0, 0, 0),
+                              child:SizedBox(
+                                width: 130,
+                                height: 40,
+                              child: ElevatedButton(
+                              child: Text('Ver',
+                              
+                              style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                                
+                                  style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16.0)
+                                  ),
+                                  primary: Color.fromARGB(255, 73, 84, 180)
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const InicioPageWidget()),
+                                );
+                              },
+                            ),
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(50, 20, 50, 0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Slidable(
-                                startActionPane: ActionPane(
-                                  motion: ScrollMotion(),
-                                  children: [
-                                    
-                                  SlidableAction(icon: Icons.delete, onPressed: (context){},)
+                                child:DropdownButton<String>(
+                                  value: selectedValue,
+                                  hint: Text(
+                                    'Concepto',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Theme.of(context).hintColor,
+                                    ),
+                                  ),
+                                  onChanged: (val) =>
+                                      setState(() => concepto = val),
+                                  items:
+                                      Conceptos.map<DropdownMenuItem<String>>(
+                                          (String value) =>
+                                              DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              )).toList(),
 
-                                  ],
-                                ),
-                                child: ListTile(
-                                  title: Text(
-                                    'Concepto: matricula\nMetodo de pago: tarjeta debito\nFecha: 01/05/2022',
-                                    style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF050606),
-                                          fontSize: 25,
-                                        ),
-                                  ),
-                                  subtitle: Text(
-                                    'Exitosa',
-                                    style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF6E43CB),
-                                          fontSize: 20,
-                                        ),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: Color(0xFF303030),
-                                    size: 20,
-                                  ),
-                                  tileColor: Color(0xFFD0CEE3),
-                                  dense: false,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                                  // add extra sugar..
+                                  icon: Icon(Icons.arrow_drop_down),
+                                  iconSize: 55,
+                                  underline: SizedBox(),
                                 ),
                               ),
                             ],
